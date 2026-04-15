@@ -87,7 +87,7 @@ export default function DemoScheduling() {
             </p>
 
             <a
-              href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demo%20do%20Oficinaz"
+              href="https://wa.me/551151073356?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demo%20do%20Oficinaz"
               target="_blank"
               rel="noopener noreferrer"
               style={{

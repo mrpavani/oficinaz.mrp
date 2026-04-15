@@ -5,18 +5,18 @@ const LOGO_NAV = "https://media.base44.com/images/public/69cffc3a30bf014e2890f5d
 const LOGO_NAV_WHITE = "https://media.base44.com/images/public/69cffc3a30bf014e2890f5d3/cba2e6a1d_Oficinaz-LogoOficial.png";
 
 const links = [
-{ label: "O que faz", href: "#features" },
-{ label: "Como usar", href: "#how" },
-{ label: "Valores", href: "#pricing" },
-{ label: "Conhecer mais", href: "#demo" }];
+  { label: "O que faz", href: "#features" },
+  { label: "Como usar", href: "#how" },
+  { label: "Valores", href: "#pricing" },
+  { label: "Conhecer mais", href: "#demo" }];
 
 const produtos = [
-{ label: "ERP", href: "#", badge: null },
-{ label: "Contabilidade", href: "#", badge: "em breve" },
-{ label: "Checklist Automotivo", href: "#", badge: "em breve" },
-{ label: "Central de Compras", href: "#parceiros", badge: "em breve" },
-{ label: "Agendamento de Serviços", href: "#", badge: "em breve" },
-{ label: "Link de Pagamentos", href: "#", badge: "em breve" }
+  { label: "ERP", href: "#", badge: null },
+  { label: "Contabilidade", href: "#", badge: "em breve" },
+  { label: "Checklist Automotivo", href: "#", badge: "em breve" },
+  { label: "Central de Compras", href: "#parceiros", badge: "em breve" },
+  { label: "Agendamento de Serviços", href: "#", badge: "em breve" },
+  { label: "Link de Pagamentos", href: "#", badge: "em breve" }
 ];
 
 
@@ -80,15 +80,15 @@ export default function Navbar({ barHeight = 44 }) {
             )}
           </div>
           {links.map((l) =>
-          <a key={l.href} href={l.href} style={{ color: "#5a6778", textDecoration: "none", fontSize: 15, fontWeight: 500, transition: "color 0.2s" }}
-          onMouseEnter={(e) => e.target.style.color = "#2ec4a0"}
-          onMouseLeave={(e) => e.target.style.color = "#5a6778"}>
+            <a key={l.href} href={l.href} style={{ color: "#5a6778", textDecoration: "none", fontSize: 15, fontWeight: 500, transition: "color 0.2s" }}
+              onMouseEnter={(e) => e.target.style.color = "#2ec4a0"}
+              onMouseLeave={(e) => e.target.style.color = "#5a6778"}>
               {l.label}
             </a>
           )}
-          <a href="/dashboard" style={{ color: "#5a6778", textDecoration: "none", fontSize: 15, fontWeight: 500, transition: "color 0.2s" }}
-          onMouseEnter={(e) => e.target.style.color = "#2ec4a0"}
-          onMouseLeave={(e) => e.target.style.color = "#5a6778"}>
+          <a href="https://app.oficinaz.com/" target="_blank" style={{ color: "#5a6778", textDecoration: "none", fontSize: 15, fontWeight: 500, transition: "color 0.2s" }}
+            onMouseEnter={(e) => e.target.style.color = "#2ec4a0"}
+            onMouseLeave={(e) => e.target.style.color = "#5a6778"}>
             Login
           </a>
           <a href="#pricing" style={{
@@ -97,8 +97,8 @@ export default function Navbar({ barHeight = 44 }) {
             textDecoration: "none", fontSize: 15, fontWeight: 700,
             transition: "background 0.2s"
           }}
-          onMouseEnter={(e) => e.target.style.background = "#1eb880"}
-          onMouseLeave={(e) => e.target.style.background = "#2ec4a0"}>
+            onMouseEnter={(e) => e.target.style.background = "#1eb880"}
+            onMouseLeave={(e) => e.target.style.background = "#2ec4a0"}>
             Começar grátis
           </a>
         </div>
@@ -109,35 +109,35 @@ export default function Navbar({ barHeight = 44 }) {
       </div>
 
       {open &&
-      <div style={{ background: "#fff", padding: "16px 24px 24px", borderTop: "1px solid #e2e6ec", boxShadow: "0 8px 24px rgba(17,29,46,0.1)" }}>
-         <div>
-           <button onClick={() => setProdutosOpen(!produtosOpen)} style={{ background: "none", border: "none", color: "#5a6778", fontSize: 16, fontWeight: 500, cursor: "pointer", display: "flex", alignItems: "center", gap: 8, width: "100%", padding: "12px 0", borderBottom: "1px solid #f0f2f5" }}>
-             Produtos
-             <ChevronDown size={16} style={{ transition: "transform 0.2s", transform: produtosOpen ? "rotate(180deg)" : "rotate(0)" }} />
-           </button>
-           {produtosOpen && (
-             <div style={{ paddingLeft: 16 }}>
-               {produtos.map((p) => (
-                 <a key={p.label} href={p.href} onClick={() => setOpen(false)} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", color: "#5a6778", textDecoration: "none", fontSize: 15, fontWeight: 500, padding: "10px 0", borderBottom: "1px solid #f0f2f5", gap: 3 }}>
-                   <span>{p.label}</span>
-                   {p.badge && <span style={{ fontSize: 8, fontWeight: 600, color: "#a0acbb", background: "#f0f2f5", padding: "1px 5px", borderRadius: 100 }}>{p.badge}</span>}
-                 </a>
-               ))}
-             </div>
-           )}
-         </div>
-         {links.map((l) =>
-       <a key={l.href} href={l.href} onClick={() => setOpen(false)} style={{ display: "block", color: "#5a6778", textDecoration: "none", fontSize: 16, fontWeight: 500, padding: "12px 0", borderBottom: "1px solid #f0f2f5" }}>
-             {l.label}
-           </a>
-       )}
+        <div style={{ background: "#fff", padding: "16px 24px 24px", borderTop: "1px solid #e2e6ec", boxShadow: "0 8px 24px rgba(17,29,46,0.1)" }}>
+          <div>
+            <button onClick={() => setProdutosOpen(!produtosOpen)} style={{ background: "none", border: "none", color: "#5a6778", fontSize: 16, fontWeight: 500, cursor: "pointer", display: "flex", alignItems: "center", gap: 8, width: "100%", padding: "12px 0", borderBottom: "1px solid #f0f2f5" }}>
+              Produtos
+              <ChevronDown size={16} style={{ transition: "transform 0.2s", transform: produtosOpen ? "rotate(180deg)" : "rotate(0)" }} />
+            </button>
+            {produtosOpen && (
+              <div style={{ paddingLeft: 16 }}>
+                {produtos.map((p) => (
+                  <a key={p.label} href={p.href} onClick={() => setOpen(false)} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", color: "#5a6778", textDecoration: "none", fontSize: 15, fontWeight: 500, padding: "10px 0", borderBottom: "1px solid #f0f2f5", gap: 3 }}>
+                    <span>{p.label}</span>
+                    {p.badge && <span style={{ fontSize: 8, fontWeight: 600, color: "#a0acbb", background: "#f0f2f5", padding: "1px 5px", borderRadius: 100 }}>{p.badge}</span>}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+          {links.map((l) =>
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} style={{ display: "block", color: "#5a6778", textDecoration: "none", fontSize: 16, fontWeight: 500, padding: "12px 0", borderBottom: "1px solid #f0f2f5" }}>
+              {l.label}
+            </a>
+          )}
           <a href="/dashboard" onClick={() => setOpen(false)} style={{ display: "block", color: "#5a6778", textDecoration: "none", fontSize: 16, fontWeight: 500, padding: "12px 0", borderBottom: "1px solid #f0f2f5" }}>
             Login
           </a>
           <a href="#pricing" onClick={() => setOpen(false)} style={{
-          display: "block", marginTop: 16, background: "#2ec4a0", color: "#fff",
-          padding: "14px 24px", borderRadius: 8, textDecoration: "none", fontSize: 16, fontWeight: 700, textAlign: "center"
-        }}>
+            display: "block", marginTop: 16, background: "#2ec4a0", color: "#fff",
+            padding: "14px 24px", borderRadius: 8, textDecoration: "none", fontSize: 16, fontWeight: 700, textAlign: "center"
+          }}>
             Começar grátis
           </a>
         </div>

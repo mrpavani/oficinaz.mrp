@@ -125,20 +125,23 @@ export default function Hero() {
         backgroundImage: "url('/hero-workshop.png')",
         backgroundSize: "cover",
         backgroundPosition: "82% center",
-        filter: "saturate(1.05) brightness(1.08)",
+        filter: "saturate(0.95) brightness(0.9)",
       }} />
+      {/* escurece o rodapé da imagem */}
       <div style={{
         position: "absolute", inset: 0, zIndex: 1,
-        background: "linear-gradient(to top, rgba(160,168,178,0.52) 0%, rgba(155,163,174,0.22) 28%, transparent 42%)",
+        background: "linear-gradient(to top, rgba(8,18,32,0.72) 0%, rgba(8,18,32,0.30) 28%, transparent 50%)",
         pointerEvents: "none",
       }} />
+      {/* overlay principal — mais opaco no lado esquerdo (onde fica o texto) */}
       <div style={{
         position: "absolute", inset: 0, zIndex: 2,
-        background: "linear-gradient(105deg, rgba(10,18,30,0.78) 0%, rgba(13,24,42,0.50) 42%, rgba(8,30,24,0.14) 100%)",
+        background: "linear-gradient(105deg, rgba(5,12,24,0.90) 0%, rgba(10,20,38,0.65) 45%, rgba(8,30,24,0.10) 100%)",
       }} />
+      {/* reforço lateral esquerdo extra */}
       <div style={{
         position: "absolute", inset: 0, zIndex: 2,
-        background: "linear-gradient(to right, rgba(20,50,90,0.14) 0%, rgba(10,40,60,0.06) 60%, transparent 100%)",
+        background: "linear-gradient(to right, rgba(5,14,28,0.50) 0%, rgba(5,14,28,0.20) 38%, transparent 60%)",
         pointerEvents: "none",
       }} />
       <div style={{
@@ -163,7 +166,14 @@ export default function Hero() {
         >
 
           {/* ── LEFT COPY ── */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+          <div style={{
+            display: "flex", flexDirection: "column", gap: 0,
+            background: "linear-gradient(160deg, rgba(5,14,28,0.55) 0%, rgba(5,14,28,0.35) 100%)",
+            backdropFilter: "blur(2px)",
+            borderRadius: 16,
+            padding: "28px 28px 24px",
+            border: "1px solid rgba(255,255,255,0.06)",
+          }}>
 
             {/* Badge */}
             <div style={{
@@ -183,7 +193,7 @@ export default function Hero() {
               fontWeight: 800, lineHeight: 1.1,
               color: "#fff", marginBottom: 18,
               letterSpacing: "-0.5px",
-              textShadow: "0 2px 8px rgba(0,0,0,0.4)",
+              textShadow: "0 2px 12px rgba(0,0,0,0.65), 0 1px 4px rgba(0,0,0,0.5)",
             }}>
               Sua oficina organizada e{" "}
               <span style={{ color: "#2ec4a0" }}>mais lucrativa.</span>
@@ -195,7 +205,7 @@ export default function Hero() {
               color: "#c4d8eb", lineHeight: 1.7,
               marginBottom: 24, maxWidth: 480,
               fontWeight: 400,
-              textShadow: "0 2px 4px rgba(0,0,0,0.4)",
+              textShadow: "0 2px 8px rgba(0,0,0,0.6)",
             }}>
               Da ordem de serviço à nota fiscal. Tudo em um único sistema.
               Acabe com papel, planilhas e tenha mais controle na sua oficina.
@@ -208,7 +218,7 @@ export default function Hero() {
                   <CheckCircle size={18} style={{ color: "#2ec4a0", flexShrink: 0 }} />
                   <span style={{
                     color: "#c4d8eb", fontSize: "clamp(14px, 1.4vw, 16px)",
-                    fontWeight: 500, textShadow: "0 2px 4px rgba(0,0,0,0.4)",
+                    fontWeight: 500, textShadow: "0 2px 8px rgba(0,0,0,0.6)",
                   }}>{b}</span>
                 </li>
               ))}
