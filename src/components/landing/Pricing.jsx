@@ -46,39 +46,13 @@ const plans = [
     ],
   },
   {
-    name: "Controle",
-    price: { monthly: 317, yearly: 285 },
-    desc: "Perfeito para oficinas pequenas ou familiares",
+    name: "Completo",
+    price: { monthly: 417, yearly: 375 },
+    desc: "Pensado e projetado para oficinas de médio porte",
     highlight: true,
     badge: "Mais escolhido",
     consulta: false,
     users: "3 usuários",
-    cta: "Assinar agora",
-    features: [
-      true,
-      "intermediária",
-      true,
-      true,
-      true,
-      true,
-      true,   // DRE gerencial
-      true,   // Gestão de vendas
-      true,   // Serviços recorrentes
-      true,   // Relatórios de serviços
-      false,  // Controle de estoque completo
-      false,  // PDV
-      false,  // Gestão Multi CNPJ
-      false,  // Conciliação bancária
-    ],
-  },
-  {
-    name: "Completo",
-    price: { monthly: 417, yearly: 375 },
-    desc: "Pensado e projetado para oficinas médias",
-    highlight: false,
-    badge: null,
-    consulta: false,
-    users: "5 usuários",
     cta: "Assinar agora",
     features: [
       true,
@@ -104,7 +78,7 @@ const plans = [
     highlight: false,
     badge: null,
     consulta: true,
-    users: "+5 usuários",
+    users: "+3 usuários",
     cta: "Falar com especialista",
     features: [
       true, true, true, true, true, true,
@@ -163,7 +137,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, alignItems: "start" }} className="price-grid">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, alignItems: "stretch" }} className="price-grid">
           {plans.map((plan) => (
             <div key={plan.name} style={{
               background: plan.highlight ? "#111d2e" : "#f8f9fb",
@@ -171,6 +145,7 @@ export default function Pricing() {
               borderRadius: 20, padding: 28, position: "relative",
               boxShadow: plan.highlight ? "0 20px 60px rgba(17,29,46,0.15)" : "none",
               transition: "transform 0.3s",
+              display: "flex", flexDirection: "column",
             }}
               onMouseEnter={e => e.currentTarget.style.transform = "translateY(-4px)"}
               onMouseLeave={e => e.currentTarget.style.transform = "none"}>
@@ -227,6 +202,7 @@ export default function Pricing() {
                 padding: "12px", borderRadius: 10, textDecoration: "none",
                 fontSize: 14, fontWeight: 700, marginBottom: 24,
                 transition: "opacity 0.2s",
+                marginTop: "auto",
               }}
                 onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
                 onMouseLeave={e => e.currentTarget.style.opacity = "1"}>
@@ -243,10 +219,10 @@ export default function Pricing() {
                       <li key={f.label} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 10 }}>
                         <FeatureValue value={val} />
                         <span style={{
-                           color: val === false
-                             ? (plan.highlight ? "#3a4a5a" : "#c0c8d4")
-                             : (plan.highlight ? "#fff" : "#5a6778"),
-                           fontSize: 14, lineHeight: 1.6,
+                          color: val === false
+                            ? (plan.highlight ? "#3a4a5a" : "#c0c8d4")
+                            : (plan.highlight ? "#fff" : "#5a6778"),
+                          fontSize: 14, lineHeight: 1.6,
                           textDecoration: val === false ? "none" : "none",
                         }}>
                           {f.label}{labelSuffix}
