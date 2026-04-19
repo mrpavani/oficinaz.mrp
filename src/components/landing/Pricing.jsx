@@ -7,7 +7,6 @@ const allFeatures = [
   { label: "Emissão de notas fiscais (NF-e, NFC-e, NFS-e)" },
   { label: "Integração contábil" },
   { label: "Suporte gratuito" },
-  { label: "App Android e iOS" },
   { label: "DRE gerencial" },
   { label: "Gestão de vendas" },
   { label: "Serviços recorrentes" },
@@ -16,43 +15,45 @@ const allFeatures = [
   { label: "PDV (Ponto de Venda / Venda Balcão)" },
   { label: "Gestão Multi CNPJ" },
   { label: "Conciliação bancária" },
+  { label: "Responsivo mobile.", sublabel: "Crie o ícone de atalho no seu celular e use como um app." },
 ];
 
 const plans = [
   {
     name: "Essencial",
-    price: { monthly: 137, yearly: 123 },
+    price: { monthly: 137, yearly: 123, yearlyTotal: "1.477" },
     desc: "Para profissionais autonômos e pequenas oficinas",
     highlight: false,
     badge: null,
     consulta: false,
     users: "1 usuário",
+    extraUser: "R$99/usuário adicional",
     cta: "Assinar agora",
     features: [
-      true,   // Treinamento gratuito
+      true,     // Treinamento gratuito
       "básica", // Gestão financeira
-      true,   // Emissão de notas fiscais
-      true,   // Integração contábil
-      true,   // Suporte gratuito
-      true,   // App Android e iOS
-      false,  // DRE gerencial
-      false,  // Gestão de vendas
-      false,  // Serviços recorrentes
-      false,  // Relatórios de serviços
-      false,  // Controle de estoque completo
-      false,  // PDV
-      false,  // Gestão Multi CNPJ
-      false,  // Conciliação bancária
+      true,     // Emissão de notas fiscais
+      true,     // Integração contábil
+      true,     // Suporte gratuito
+      false,    // DRE gerencial
+      false,    // Gestão de vendas
+      false,    // Serviços recorrentes
+      false,    // Relatórios de serviços
+      false,    // Controle de estoque completo
+      false,    // PDV
+      false,    // Gestão Multi CNPJ
+      false,    // Conciliação bancária
+      true,     // Responsivo mobile
     ],
   },
   {
     name: "Completo",
-    price: { monthly: 417, yearly: 375 },
+    price: { monthly: 637, yearly: 573, yearlyTotal: "6.877" },
     desc: "Pensado e projetado para oficinas de médio porte",
     highlight: true,
     badge: "Mais escolhido",
     consulta: false,
-    users: "3 usuários",
+    users: "5 usuários",
     cta: "Assinar agora",
     features: [
       true,
@@ -78,7 +79,7 @@ const plans = [
     highlight: false,
     badge: null,
     consulta: true,
-    users: "+3 usuários",
+    users: "+5 usuários",
     cta: "Falar com especialista",
     features: [
       true, true, true, true, true, true,
@@ -94,7 +95,7 @@ function FeatureValue({ value }) {
 }
 
 export default function Pricing() {
-  const [yearly, setYearly] = useState(false);
+  const [yearly, setYearly] = useState(true);
 
   return (
     <section id="pricing" style={{ padding: "100px 24px", background: "#ffffff" }}>
@@ -162,9 +163,9 @@ export default function Pricing() {
               <div style={{ marginBottom: 4, color: plan.highlight ? "#fff" : "#a0acbb", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>{plan.name}</div>
 
               {/* Users badge */}
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 5, background: plan.highlight ? "rgba(46,196,160,0.15)" : "#e4faf4", border: `1px solid ${plan.highlight ? "rgba(46,196,160,0.25)" : "#b8f1e4"}`, borderRadius: 8, padding: "4px 10px", marginBottom: 10 }}>
-                <Users size={12} style={{ color: "#2ec4a0", flexShrink: 0 }} />
-                <span style={{ color: "#127055", fontSize: 12, fontWeight: 700 }}>{plan.users}</span>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: plan.highlight ? "rgba(46,196,160,0.15)" : "#e4faf4", border: `1px solid ${plan.highlight ? "rgba(46,196,160,0.30)" : "#b8f1e4"}`, borderRadius: 8, padding: "5px 12px", marginBottom: 10 }}>
+                <Users size={13} style={{ color: "#2ec4a0", flexShrink: 0 }} />
+                <span style={{ color: plan.highlight ? "#4dd4b4" : "#127055", fontSize: 13, fontWeight: 700 }}>{plan.users}</span>
               </div>
 
               {plan.consulta ? (
@@ -183,7 +184,18 @@ export default function Pricing() {
                   </div>
                   {yearly && (
                     <div style={{ color: "#2ec4a0", fontSize: 12, marginBottom: 4 }}>
-                      Cobrado R$ {plan.price.yearly * 12}/ano
+                      Cobrado R$ {plan.price.yearlyTotal ?? plan.price.yearly * 12}/ano
+                    </div>
+                  )}
+                  {plan.extraUser && (
+                    <div style={{
+                      display: "inline-flex", alignItems: "center", gap: 5,
+                      marginTop: 8, padding: "3px 10px 3px 8px",
+                      background: "#f8f9fb", border: "1px solid #e2e6ec",
+                      borderRadius: 100,
+                    }}>
+                      <Users size={11} style={{ color: "#a0acbb", flexShrink: 0 }} />
+                      <span style={{ color: "#a0acbb", fontSize: 11.5, fontWeight: 500, letterSpacing: 0.1 }}>{plan.extraUser}</span>
                     </div>
                   )}
                 </>
@@ -223,9 +235,13 @@ export default function Pricing() {
                             ? (plan.highlight ? "#3a4a5a" : "#c0c8d4")
                             : (plan.highlight ? "#fff" : "#5a6778"),
                           fontSize: 14, lineHeight: 1.6,
-                          textDecoration: val === false ? "none" : "none",
                         }}>
                           {f.label}{labelSuffix}
+                          {f.sublabel && (
+                            <span style={{ display: "block", fontSize: 12, opacity: 0.7, marginTop: 1 }}>
+                              ({f.sublabel})
+                            </span>
+                          )}
                         </span>
                       </li>
                     );

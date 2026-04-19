@@ -1,8 +1,20 @@
 {
   "name": "base44-app",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "description": "Sistema ERP para oficinas mecânicas e auto centers, com foco em produtividade, controle operacional e visibilidade do negócio em um único lugar.",
+  "homepage": "https://github.com/mrpavani/oficinaz.mrp#readme",
+  "bugs": {
+    "url": "https://github.com/mrpavani/oficinaz.mrp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrpavani/oficinaz.mrp.git"
+  },
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "eslint.config.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
