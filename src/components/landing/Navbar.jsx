@@ -86,7 +86,7 @@ export default function Navbar({ barHeight = 44 }) {
               {l.label}
             </a>
           )}
-          <a href="app.oficinaz.com" target="_blank" style={{ color: "#5a6778", textDecoration: "none", fontSize: 15, fontWeight: 500, transition: "color 0.2s" }}
+          <a href="https://app.oficinaz.com" target="_blank" style={{ color: "#5a6778", textDecoration: "none", fontSize: 15, fontWeight: 500, transition: "color 0.2s" }}
             onMouseEnter={(e) => e.target.style.color = "#2ec4a0"}
             onMouseLeave={(e) => e.target.style.color = "#5a6778"}>
             Login
