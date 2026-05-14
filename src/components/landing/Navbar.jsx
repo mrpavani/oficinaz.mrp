@@ -131,7 +131,7 @@ export default function Navbar({ barHeight = 44 }) {
               {l.label}
             </a>
           )}
-          <a href="/dashboard" onClick={() => setOpen(false)} style={{ display: "block", color: "#5a6778", textDecoration: "none", fontSize: 16, fontWeight: 500, padding: "12px 0", borderBottom: "1px solid #f0f2f5" }}>
+          <a href="https://app.oficinaz.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} style={{ display: "block", color: "#5a6778", textDecoration: "none", fontSize: 16, fontWeight: 500, padding: "12px 0", borderBottom: "1px solid #f0f2f5" }}>
             Login
           </a>
           <a href="#pricing" onClick={() => setOpen(false)} style={{
